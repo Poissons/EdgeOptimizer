@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cluster-information-deployment
+  namespace: information
+  labels:
+    app: cluster-information-deployment
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: cluster-information-deployment
+  template:
+    metadata:
+      labels:
+        app: cluster-information-deployment
+    spec:
+      containers:
+      - name: cluster-information-deployment
+        image: registry.cn-qingdao.aliyuncs.com/qiaoyufei01/cluster-information-deployment:latest
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: 0.5Gi
+            ephemeral-storage: 1Gi
+          requests:
+            cpu: "0.5"
+            memory: 0.5Gi
+            ephemeral-storage: 1Gi
+        ports:
+        - name: http
+          containerPort: 9000
+   
+
+

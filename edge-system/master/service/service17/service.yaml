@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service17-deployment
+  namespace: ai-service
+  labels:
+    app: service17
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service17
+  template:
+    metadata:
+      labels:
+        app: service17
+        busy: "0"
+    spec:
+      containers:
+      - name: service17
+        image: registry.cn-qingdao.aliyuncs.com/qiaoyufei01/ai-ocr:latest
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            cpu: "3"
+            memory: 1Gi
+            #ephemeral-storage: 2Gi
+          requests:
+            cpu: "3"
+            memory: 1Gi
+            #ephemeral-storage: 2Gi
+        ports:
+        - name: http
+          containerPort: 2500
+   
+
+

@@ -1,0 +1,87 @@
+[
+  "master",
+  3,
+  {
+    "master": {
+      "4": {
+        "success": 1,
+        "failure": 0
+      },
+      "11": {
+        "success": 0,
+        "failure": 1
+      },
+      "8": {
+        "success": 1,
+        "failure": 0
+      }
+    }
+  },
+  {
+    "master": {
+      "node1": {
+        "4": 2,
+        "11": 1
+      },
+      "node2": {
+        "8": 2
+      }
+    }
+  },
+  {
+    "master": {
+      "4": {
+        "stuck": 1
+      },
+      "11": {
+        "stuck": 1
+      },
+      "8": {
+        "stuck": 1
+      },
+      "6": {
+        "stuck": 1
+      },
+      "2": {
+        "stuck": 1
+      },
+      "1": {
+        "stuck": 2
+      }
+    }
+  },
+  {
+    "master": {
+      "node1": {
+        "cpu": {
+          "percent": 2,
+          "allocated": 100,
+          "allocatable": 100
+        },
+        "memory": {
+          "percent": 19,
+          "allocated": 3122,
+          "allocatable": 100
+        },
+        "ephemeral-storage": {
+          "percent": 40,
+          "allocated": 600,
+          "allocatable": 100
+        }
+      },
+      "node2": {
+        "cpu": {
+          "percent": 2,
+          "allocated": 100,
+          "allocatable": 100
+        },
+        "memory": {
+          "percent": 26,
+          "allocated": 4146,
+          "allocatable": 100
+        }
+      }
+    }
+  },
+  0
+]

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service11-deployment
+  namespace: ai-service
+  labels:
+    app: service11
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service11
+  template:
+    metadata:
+      labels:
+        app: service11
+        busy: "0"
+    spec:
+      containers:
+      - name: service11
+        image: registry.cn-qingdao.aliyuncs.com/qiaoyufei01/ai-ocr:latest
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            cpu: "3"
+            memory: 1Gi
+            #ephemeral-storage: 2Gi
+          requests:
+            cpu: "3"
+            memory: 1Gi
+            #ephemeral-storage: 2Gi
+        ports:
+        - name: http
+          containerPort: 2500
+   
+
+

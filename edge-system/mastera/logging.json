@@ -1,0 +1,30 @@
+{
+ "version":1,
+ "disable_existing_loggers":false,
+ "formatters":{
+ "simple":{
+ "format":"%(process)d - %(thread)d - %(threadName)s - %(asctime)s - %(name)s - %(funcName)s - %(lineno)d - %(levelname)s - %(message)s"
+ }
+ },
+ "handlers":{
+ "console":{
+ "class":"logging.StreamHandler",
+ "level":"DEBUG",
+ "formatter":"simple",
+ "stream":"ext://sys.stdout"
+ },
+ "info_file_handler":{
+ "class":"logging.FileHandler",
+ "level":"INFO",
+ "formatter":"simple",
+ "filename":"info.log",
+ "encoding":"utf8"
+ }
+ },
+"loggers":{
+ },
+ "root":{
+ "level":"DEBUG",
+ "handlers":["console","info_file_handler"]
+ }
+}

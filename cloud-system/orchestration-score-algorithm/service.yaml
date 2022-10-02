@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orchestration-score-algorithm-deployment
+  namespace: algorithm
+  labels:
+    app: orchestration-score-algorithm-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orchestration-score-algorithm-deployment
+  template:
+    metadata:
+      labels:
+        app: orchestration-score-algorithm-deployment
+    spec:
+      containers:
+      - name: orchestration-score-algorithm-deployment
+        image: registry.cn-qingdao.aliyuncs.com/qiaoyufei01/orchestration-score-algorithm-deployment:latest
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            cpu: "1"
+            memory: 1Gi
+            ephemeral-storage: 2Gi
+          requests:
+            cpu: "1"
+            memory: 1Gi
+            ephemeral-storage: 2Gi
+        ports:
+        - name: http
+          containerPort: 4001
+   
+
+

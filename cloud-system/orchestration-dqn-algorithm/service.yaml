@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orchestration-dqn-algorithm-deployment
+  labels:
+    app: orchestration-dqn-algorithm-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orchestration-dqn-algorithm-deployment
+  template:
+    metadata:
+      labels:
+        app: orchestration-dqn-algorithm-deployment
+    spec:
+      containers:
+      - name: service-dqn-simplenet
+        image: registry.cn-qingdao.aliyuncs.com/qiaoyufei01/orchestration-dqn-algorithm-deployment:latest
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: 1Gi
+            ephemeral-storage: 2Gi
+          requests:
+            memory: 1Gi
+            ephemeral-storage: 2Gi
+        ports:
+        - name: http
+          containerPort: 4002
+
+
